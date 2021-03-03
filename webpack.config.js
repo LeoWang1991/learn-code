@@ -21,10 +21,21 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader'
       },
+      // {
+      //   test: /\.less$/i,
+      //   use: 'less-loader'
+      // },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
+        test: /\.(css|less)$/,
+        use: ['style-loader', {
+          loader: 'css-loader',
+          options: {
+            modules: {
+              localIdentName: "[path][name]__[local]--[hash:base64:5]",
+            }
+          }
+        }, 'less-loader']
+      },      
     ]
   },
   devServer: {

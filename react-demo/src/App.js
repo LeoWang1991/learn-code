@@ -1,9 +1,13 @@
 import React from 'react'
-import './index.css'
+// import './index.css'
+import styles from './index.less'
 
 const App = () => {
 
-  return <div>Demo App</div>
+  return <div className={styles.container}>
+    hello world
+    <span className={styles.tag}>tag111</span>
+  </div>
 }
 
 export default App
