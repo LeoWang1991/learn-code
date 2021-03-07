@@ -42,6 +42,11 @@ module.exports = {
   },
   devServer: {
     port: 8002,
-    contentBase: path.join(__dirname, 'react-demo/dist')
+    contentBase: path.join(__dirname, 'react-demo/public'),
+    
+  },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
   }
 }

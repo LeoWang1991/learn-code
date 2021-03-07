@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 // import './index.css'
 import styles from './index.less'
 
@@ -12,4 +12,31 @@ const App = () => {
   </div>
 }
 
-export default App
+class App2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 1
+    }
+    this.addCount = this.addCount.bind(this)
+  }
+
+  addCount() {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  
+  
+  render() {
+    return (
+      <div>
+        <p><button onClick={this.addCount}>add</button></p>
+        <p>{this.state.count}</p>
+      </div>
+    )
+  }
+}
+
+
+export default App2
