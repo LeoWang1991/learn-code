@@ -12,6 +12,20 @@ const App = () => {
   </div>
 }
 
+class Counter extends React.Component {
+  constructor(kk) {
+    super(kk);
+    console.log('props---', kk);
+    console.log(this.props)
+  }
+
+  // constructor() {}
+
+  render() {
+    return <div>结果：{this.props.value}</div>
+  }
+}
+
 class App2 extends React.Component {
   constructor(props) {
     super(props);
@@ -33,6 +47,7 @@ class App2 extends React.Component {
       <div>
         <p><button onClick={this.addCount}>add</button></p>
         <p>{this.state.count}</p>
+        <Counter value={this.state.count} />
       </div>
     )
   }
