@@ -16,6 +16,11 @@ module.exports = {
     }),
     // new NodemonPlugin()
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'react-demo/src/')
+    }
+  },
   module: {
     rules: [
       {
