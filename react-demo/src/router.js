@@ -15,7 +15,7 @@ import {
 import routes from './router.config'
 import Home from '@/pages/Home'
 import ProviderDemo from '@/pages/ProviderDemo'
-import UseStateDemo from '@/pages/UseState'
+import HooksDemo from '@/pages/HooksDemo'
 import styles from './index.less';
 
 const BasicRoute = () => (
@@ -26,9 +26,7 @@ const BasicRoute = () => (
       </div>
       <div className={styles.content}>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/provider' component={ProviderDemo} />
-          <Route exact path='/usestate' component={UseStateDemo} />
+          {routes.map(item => <Route key={item.name} exact path={item.path} component={item.component} />)}         
         </Switch>
       </div>
     </div>    
