@@ -113,6 +113,11 @@ function assertReducerShape(reducers) {
 export default function combineReducers(reducers) {
   const reducerKeys = Object.keys(reducers)
   const finalReducers = {}
+  const process = {
+    env: {
+      NODE_ENV: 'development'
+    }
+  }
   for (let i = 0; i < reducerKeys.length; i++) {
     const key = reducerKeys[i]
 

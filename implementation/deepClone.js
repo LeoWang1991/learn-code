@@ -58,11 +58,12 @@ const test = {
 
 const obj = {
   name: 'xiaofei',  
+  sayhello: function() {
+    console.log(this.name)
+  }
 }
-
-// obj.obj1 = obj;
-obj.test1 = test;
-obj.test2 = test;
+obj.sayhello();
 
 const cloneObj = _deepClone(obj);
+cloneObj.sayhello();
 console.log(cloneObj);

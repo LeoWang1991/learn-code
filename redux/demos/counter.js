@@ -5,12 +5,17 @@
  */
 
 import { createStore } from '../index.js';
+import combineReducers from '../combineReducers.js';
 
 const initialState = {
   count: 0
-}
+};
 
-const reducer = (state = initialState, action) => {
+const todoInitState = [];
+
+let nextTodoId = 0;
+
+const counter = (state = initialState, action) => {
   switch(action.type) {
     case 'ADD': return {
       ...state,
@@ -24,28 +29,49 @@ const reducer = (state = initialState, action) => {
   }
 }
 
+const todo = (state = todoInitState, action) => {
+  switch(action.type) {
+    case 'ADD_ITEM': {
+      return [
+        ...state,
+        {
+          id: nextTodoId++,
+          text: action.payload
+        }
+      ]
+    };
+    default: return state;    
+  }
+}
+
+
 const logState = () => {
   console.log(store.getState())
 }
 
+const reducer = combineReducers({
+  counter,
+  todo
+})
+
 
 const store = createStore(reducer);
 
-// logState();
+store.subscribe(() => {
+  console.log(`当前store数据--`, store.getState());
+})
 
-// store.dispatch({ type: 'ADD' });
-store.subscribe(function() {
-  console.log('订阅函数1');  
+
+store.dispatch({
+  type: 'ADD_ITEM',
+  payload: '学习redux'
 });
-store.dispatch({ type: 'ADD' });
-store.subscribe(function() {
-  console.log('订阅函数2');
-});
-store.subscribe(function() {
-  console.log('订阅函数3');
-});
-store.dispatch({ type: 'ADD' });
-// unsubscribe();
+// store.dispatch({
+//   type: 'ADD_ITEM',
+//   payload: '学习redux'
+// })
+
+
 // store.dispatch({ type: 'ADD' })
 
 

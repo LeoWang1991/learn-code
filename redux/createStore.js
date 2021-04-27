@@ -207,13 +207,10 @@ export default function createStore(reducer, preloadedState, enhancer) {
     }
 
     const listeners = (currentListeners = nextListeners)
-    // const listeners = currentListeners;
-    setTimeout(() => {     
-      for (let i = 0; i < listeners.length; i++) {
-        const listener = listeners[i]
-        listener()
-      }
-    }, 1000);    
+    for (let i = 0; i < listeners.length; i++) {
+      const listener = listeners[i]
+      listener()
+    }   
 
     return action
   }
