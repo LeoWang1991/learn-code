@@ -3,6 +3,8 @@ import Home from '@/pages/Home'
 import ProviderDemo from '@/pages/ProviderDemo'
 import HooksDemo from '@/pages/HooksDemo'
 import ReduxDemo from '@/pages/ReduxDemo'
+import SetStateDemo from '@/pages/SetStateDemo'
+import LifecycleDemo from '@/pages/LifecycleDemo'
 
 export default [
   {
@@ -24,5 +26,15 @@ export default [
     name: 'redux-demo',
     path: '/redux',
     component: ReduxDemo
+  },
+  {
+    name:'setState-demo',
+    path: '/setstate',
+    component: SetStateDemo
+  },
+  {
+    name: 'lifecycle-demo',
+    path: '/lifecycle',
+    component: LifecycleDemo
   }
 ]
