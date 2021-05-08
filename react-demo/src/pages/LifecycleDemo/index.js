@@ -4,7 +4,8 @@
  * @Description: 
  */
 
-import DemoApp from './SnapshotBeforeUpdate'; 
+// import DemoApp from './SnapshotBeforeUpdate'; 
+import DemoApp from './shadowCompare';
 
 class Info extends React.Component {
   constructor(props) {

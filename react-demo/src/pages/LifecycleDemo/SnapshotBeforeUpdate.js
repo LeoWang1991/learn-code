@@ -15,6 +15,7 @@ class App extends React.Component {
     const newItems = [...items];
     this.index++;
     newItems.push(this.index);
+    items.push(this.index);
     this.setState({ items: newItems })
   }
 
@@ -30,31 +31,26 @@ class App extends React.Component {
   }
 
   shouldComponentUpdate() {
-    return false;
+    return true;
   }
 
   componentDidMount() {   
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    // console.log(prevProps, prevState);
-
-    // return {
-    //   name: 'xiaofei'
-    // }
-
-    const container  = this.containerRef.current;
-    
+    // console.log(prevState, this.state);
+   
+    const container  = this.containerRef.current;    
     return container.scrollHeight - container.scrollTop;
-    return null;
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(this.state, prevState, snapshot);
-    // console.log(this.props, prevProps);
-    console.log(snapshot);
+    console.log('current state---', this.state);
+    console.log('prevState', prevState);
+    console.log(this.state == prevState);
+
     const container = this.containerRef.current;
-    // container.scrollTop = container.scrollHeight - snapshot;
+    container.scrollTop = container.scrollHeight - snapshot;
   }
 
   render() {
