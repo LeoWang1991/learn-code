@@ -5,6 +5,7 @@ import HooksDemo from '@/pages/HooksDemo'
 import ReduxDemo from '@/pages/ReduxDemo'
 import SetStateDemo from '@/pages/SetStateDemo'
 import LifecycleDemo from '@/pages/LifecycleDemo'
+import MyHookDemo from '@/pages/HookImplemenation'
 
 export default [
   {
@@ -21,6 +22,11 @@ export default [
     name: 'hooks-Demo',
     path: '/hooks',
     component: HooksDemo
+  },
+  {
+    name: 'hooks-implemention',
+    path: '/hooks-implemention',
+    component: MyHookDemo
   },
   {
     name: 'redux-demo',
